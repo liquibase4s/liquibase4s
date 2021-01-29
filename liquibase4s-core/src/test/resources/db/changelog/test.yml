@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - logicalFilePath: test.yml
+  - changeSet:
+      id: 1
+      author: rfuerst
+      comment: Add test table.
+      changes:
+        - createTable:
+            tableName: test
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  constraints:
+                    primaryKey: true
+                    primaryKeyName: pk_test_id
+                    nullable: false
