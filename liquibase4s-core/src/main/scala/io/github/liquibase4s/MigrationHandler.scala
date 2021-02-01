@@ -7,7 +7,7 @@ trait MigrationHandler[F[_]] {
 }
 
 object MigrationHandler {
-  def apply[F[_] : MigrationHandler]: MigrationHandler[F] = implicitly[MigrationHandler[F]]
+  def apply[F[_]: MigrationHandler]: MigrationHandler[F] = implicitly[MigrationHandler[F]]
 
   implicit def defaultHandler(implicit ec: ExecutionContext): MigrationHandler[Future] = FutureMigrationHandler.handler
 }

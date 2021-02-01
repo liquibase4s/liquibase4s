@@ -4,5 +4,8 @@ case class LiquibaseConfig(
     url: String,
     user: String,
     password: String,
+    driver: String,
     changelog: String,
+    contexts: Option[List[String]] = None,
+    labels: Option[List[String]] = None,
 )

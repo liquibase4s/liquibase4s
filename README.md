@@ -1,19 +1,21 @@
 # liquibase4s - Liquibase Migrations For Scala
 
-liquibase4s provides a simple, idiomatic API to run [Liquibase](https://www.liquibase.org) migrations
+liquibase4s provides a simple, idiomatic wrapper library to run [Liquibase](https://www.liquibase.org) migrations
 in Scala. We currently support [scala.concurrent.Future](https://docs.scala-lang.org/overviews/core/futures.html)
 and [cats.effect.IO](https://typelevel.org/cats-effect/).
 
 ## Binaries
 
-Builds are available for Scala 2.12 and 2.13
+**Builds are not yet available!**
+
+If you want to use liquibase4s, clone this repo and run `sbt +publishLocal`.
 
 ```scala
 libraryDependencies ++= Seq(
-  "io.github.liquibase4s" %% "liquibase4s-core" % "0.1.0",
+  "io.github.liquibase4s" %% "liquibase4s-core" % "0.1.0-SNAPSHOT",
   
   // if you want to use cats.effect.IO
-  "io.github.liquibase4s" %% "liquibase4s-cats-effect" % "0.1.0",
+  "io.github.liquibase4s" %% "liquibase4s-cats-effect" % "0.1.0-SNAPSHOT",
 )
 ```
 ## Getting Started
@@ -28,6 +30,7 @@ val config: LiquibaseConfig = LiquibaseConfig(
   url = "jdbc:h2:mem:testdb",
   user = "test",
   password = "test",
+  driver = "org.h2.Driver",
   changelog = "db/changelog/test.xml",
 )
 
@@ -36,6 +39,7 @@ Liquibase.migrate(config).map(_ => //...)
 
 Alternatively you can use `cats.effect.IO`.
 ```scala
+import cats.effect.IO
 import io.github.liquibase4s.cats.CatsLiquibaseHandler._
 
 Liquibase.migrate[IO](config)

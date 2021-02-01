@@ -5,6 +5,7 @@ object TestConfig {
     url = "jdbc:h2:mem:testdb",
     user = "test",
     password = "test",
-    changelog = "db/changelog/test.yml",
+    driver = "org.h2.Driver",
+    changelog = "db/changelog/test.xml",
   )
 }
