@@ -1,8 +1,11 @@
 package io.github.liquibase4s
 
-import scala.concurrent.{ExecutionContext, Future}
+class Liquibase[F[_]](config: LiquibaseConfig)(implicit handler: MigrationHandler[F]) {
+  def migrate(): F[Unit] = handler.migrate(config)
+
+  def validate(): F[Unit] = handler.validate(config)
+}
 
 object Liquibase {
-  def migrate[F[_]](config: LiquibaseConfig)(implicit handler: MigrationHandler[F]): F[Unit] =
-    handler.migrate(config)
+  def apply[F[_]](config: LiquibaseConfig)(implicit handler: MigrationHandler[F]): Liquibase[F] = new Liquibase(config)
 }

@@ -4,6 +4,7 @@ import scala.concurrent.{ExecutionContext, Future}
 
 trait MigrationHandler[F[_]] {
   def migrate(config: LiquibaseConfig): F[Unit]
+  def validate(config: LiquibaseConfig): F[Unit]
 }
 
 object MigrationHandler {

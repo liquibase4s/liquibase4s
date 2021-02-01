@@ -40,9 +40,9 @@ Liquibase.migrate(config).map(_ => //...)
 Alternatively you can use `cats.effect.IO`.
 ```scala
 import cats.effect.IO
-import io.github.liquibase4s.cats.CatsLiquibaseHandler._
+import io.github.liquibase4s.cats.CatsMigrationHandler._
 
-Liquibase.migrate[IO](config)
+Liquibase[IO].migrate(config)
 ```
 
 ## Contributions

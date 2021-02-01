@@ -8,20 +8,28 @@ import liquibase.{Contexts, LabelExpression}
 import java.sql.{Connection, DriverManager}
 import scala.jdk.CollectionConverters._
 
-class SchemaMigration {
+class SchemaMigration(config: LiquibaseConfig) {
 
-  def migrate(config: LiquibaseConfig): Unit = {
+  def migrate(): Unit = {
     val connection = getConnection(config)
     val liquibase = createLiquibase(connection, config.changelog)
     val contexts = buildContexts(config.contexts)
     val labelExpression = buildLabelExpression(config.contexts)
 
+    liquibase.validate()
     try liquibase.update(contexts, labelExpression)
     finally {
       liquibase.forceReleaseLocks()
       connection.rollback()
       connection.close()
     }
+  }
+
+  def validate(): Unit = {
+    val connection = getConnection(config)
+    val liquibase = createLiquibase(connection, config.changelog)
+
+    liquibase.validate()
   }
 
   private def createLiquibase(connection: Connection, changelog: String): liquibase.Liquibase = {
@@ -53,4 +61,6 @@ class SchemaMigration {
       .getOrElse(new LabelExpression())
 }
 
-object SchemaMigration extends SchemaMigration
+object SchemaMigration {
+  def apply(config: LiquibaseConfig): SchemaMigration = new SchemaMigration(config)
+}
