@@ -34,7 +34,7 @@ val config: LiquibaseConfig = LiquibaseConfig(
   changelog = "db/changelog/test.xml",
 )
 
-Liquibase.migrate(config).map(_ => //...)
+Liquibase(config).migrate.map(_ => //...)
 ```
 
 Alternatively you can use `cats.effect.IO`.
@@ -42,7 +42,7 @@ Alternatively you can use `cats.effect.IO`.
 import cats.effect.IO
 import io.github.liquibase4s.cats.CatsMigrationHandler._
 
-Liquibase[IO].migrate(config)
+Liquibase[IO](config).migrate
 ```
 
 ## Contributions
