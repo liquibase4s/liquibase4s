@@ -1,6 +1,6 @@
 package io.github.liquibase4s
 
-import scala.concurrent.{ExecutionContext, Future}
+import io.github.liquibase4s.IdentityMigrationHandler.Identity
 
 trait MigrationHandler[F[_]] {
   def migrate(config: LiquibaseConfig): F[Unit]
@@ -10,5 +10,5 @@ trait MigrationHandler[F[_]] {
 object MigrationHandler {
   def apply[F[_]: MigrationHandler]: MigrationHandler[F] = implicitly[MigrationHandler[F]]
 
-  implicit def defaultHandler(implicit ec: ExecutionContext): MigrationHandler[Future] = FutureMigrationHandler.handler
+  implicit def defaultHandler: MigrationHandler[Identity] = IdentityMigrationHandler.handler
 }
