@@ -6,8 +6,8 @@ object IdentityMigrationHandler {
 
   implicit def handler: MigrationHandler[Identity] = new MigrationHandler[Identity] {
 
-    override def migrate(config: LiquibaseConfig): Unit = SchemaMigration(config).migrate()
+    override def migrate(config: LiquibaseConfig): Unit = LiquibaseWrapper(config).migrate()
 
-    override def validate(config: LiquibaseConfig): Unit = SchemaMigration(config).validate()
+    override def validate(config: LiquibaseConfig): Unit = LiquibaseWrapper(config).validate()
   }
 }

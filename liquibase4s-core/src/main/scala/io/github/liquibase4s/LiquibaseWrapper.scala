@@ -8,7 +8,7 @@ import liquibase.{Contexts, LabelExpression}
 import java.sql.{Connection, DriverManager}
 import scala.jdk.CollectionConverters._
 
-class SchemaMigration(config: LiquibaseConfig) {
+class LiquibaseWrapper(config: LiquibaseConfig) {
 
   def migrate(): Unit = {
     val connection = getConnection(config)
@@ -36,7 +36,7 @@ class SchemaMigration(config: LiquibaseConfig) {
     val database = DatabaseFactory.getInstance.findCorrectDatabaseImplementation(
       new JdbcConnection(connection),
     )
-    val classLoader = classOf[SchemaMigration].getClassLoader
+    val classLoader = classOf[LiquibaseWrapper].getClassLoader
     val resourceAccessor = new ClassLoaderResourceAccessor(classLoader)
     new liquibase.Liquibase(changelog, resourceAccessor, database)
   }
@@ -61,6 +61,6 @@ class SchemaMigration(config: LiquibaseConfig) {
       .getOrElse(new LabelExpression())
 }
 
-object SchemaMigration {
-  def apply(config: LiquibaseConfig): SchemaMigration = new SchemaMigration(config)
+object LiquibaseWrapper {
+  def apply(config: LiquibaseConfig): LiquibaseWrapper = new LiquibaseWrapper(config)
 }

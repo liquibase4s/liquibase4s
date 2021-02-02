@@ -1,8 +1,8 @@
 # liquibase4s - Liquibase Migrations For Scala
 
-liquibase4s provides a simple, idiomatic wrapper library to run [Liquibase](https://www.liquibase.org) migrations
-in Scala. We currently support [scala.concurrent.Future](https://docs.scala-lang.org/overviews/core/futures.html)
-and [cats.effect.IO](https://typelevel.org/cats-effect/).
+liquibase4s is a simple, idiomatic wrapper library to run [Liquibase](https://www.liquibase.org) migrations
+in Scala. We currently support `Identity`, [`scala.concurrent.Future`](https://docs.scala-lang.org/overviews/core/futures.html)
+and [`cats.effect.IO`](https://typelevel.org/cats-effect/).
 
 ## Binaries
 
@@ -20,8 +20,8 @@ libraryDependencies ++= Seq(
 ```
 ## Getting Started
 
-To run liquibase migrations you need to create a `LiquibaseConfig` and pass it to `Liquibase.migrate()`.
-The default implementation uses `scala.concurrent.Future`.
+To run liquibase migrations you need to create a `LiquibaseConfig` and construct a `Liquibase` instance.
+The default implementation uses `Identity` which means migrations will run synchronously.
 
 ```scala
 import io.github.liquibase4s.{Liquibase, LiquibaseConfig}
@@ -34,15 +34,26 @@ val config: LiquibaseConfig = LiquibaseConfig(
   changelog = "db/changelog/test.xml",
 )
 
-Liquibase(config).migrate.map(_ => //...)
+Liquibase(config).migrate // returns Unit in case of success or throws Exception
 ```
 
-Alternatively you can use `cats.effect.IO`.
+Alternatively you can use `scala.concurrent.Future` to run migrations asynchronously.
+
+```scala
+import scala.concurrent.Future
+import io.github.liquibase4s.FutureMigrationHandler._
+
+import scala.concurrent.ExecutionContext.Implicits.global
+
+Liquibase[Future](config).migrate // returns Future[Unit]
+```
+
+`liquibase4s-cats-effect` provides support for `cats.effect.IO`.
 ```scala
 import cats.effect.IO
 import io.github.liquibase4s.cats.CatsMigrationHandler._
 
-Liquibase[IO](config).migrate
+Liquibase[IO](config).migrate // returns IO[Unit]
 ```
 
 ## Contributions
