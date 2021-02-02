@@ -34,7 +34,7 @@ val config: LiquibaseConfig = LiquibaseConfig(
   changelog = "db/changelog/test.xml",
 )
 
-Liquibase(config).migrate // returns Unit in case of success or throws Exception
+Liquibase(config).migrate() // returns Unit in case of success or throws Exception
 ```
 
 Alternatively you can use `scala.concurrent.Future` to run migrations asynchronously.
@@ -45,7 +45,7 @@ import io.github.liquibase4s.FutureMigrationHandler._
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
-Liquibase[Future](config).migrate // returns Future[Unit]
+Liquibase[Future](config).migrate() // returns Future[Unit]
 ```
 
 `liquibase4s-cats-effect` provides support for `cats.effect.IO`.
@@ -53,7 +53,7 @@ Liquibase[Future](config).migrate // returns Future[Unit]
 import cats.effect.IO
 import io.github.liquibase4s.cats.CatsMigrationHandler._
 
-Liquibase[IO](config).migrate // returns IO[Unit]
+Liquibase[IO](config).migrate() // returns IO[Unit]
 ```
 
 ## Contributions

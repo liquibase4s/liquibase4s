@@ -4,12 +4,12 @@ class Liquibase[F[_]](config: LiquibaseConfig)(implicit handler: MigrationHandle
 
   /** Runs liquibase migrations.
     */
-  def migrate: F[Unit] = handler.migrate(config)
+  def migrate(): F[Unit] = handler.migrate(config)
 
   /** Checks and identifies any possible errors in a changelog that can cause
     * migrations to fail.
     */
-  def validate: F[Unit] = handler.validate(config)
+  def validate(): F[Unit] = handler.validate(config)
 }
 
 object Liquibase {
