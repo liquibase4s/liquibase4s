@@ -5,6 +5,8 @@ val MunitVersion = "0.7.21"
 val MunitCatsEffectVersion = "0.13.0"
 val H2Version = "1.4.192"
 
+ThisBuild / githubWorkflowPublishTargetBranches := Seq()
+
 lazy val commonSettings = Seq(
   organization := "io.github.liquibase4s",
   version := "0.1.0-SNAPSHOT",
