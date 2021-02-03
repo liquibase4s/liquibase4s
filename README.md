@@ -1,5 +1,7 @@
 # liquibase4s - Liquibase Migrations For Scala
 
+![Continuous Integration](https://github.com/liquibase4s/liquibase4s/workflows/Continuous%20Integration/badge.svg)
+
 liquibase4s is a simple, idiomatic wrapper library to run [Liquibase](https://www.liquibase.org) migrations
 in Scala. We currently support `Identity`, [`scala.concurrent.Future`](https://docs.scala-lang.org/overviews/core/futures.html)
 and [`cats.effect.IO`](https://typelevel.org/cats-effect/).
