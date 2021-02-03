@@ -1,11 +1,9 @@
 package io.github.liquibase4s.cats
 
-import cats.effect.{IO, Sync}
+import cats.effect.Sync
 import io.github.liquibase4s.{LiquibaseConfig, LiquibaseWrapper, MigrationHandler}
 
 object CatsMigrationHandler {
-
-  implicit def handler: MigrationHandler[IO] = liquibaseHandlerForCats[IO]
 
   implicit def liquibaseHandlerForCats[F[_]](implicit S: Sync[F]): MigrationHandler[F] = new MigrationHandler[F] {
 
