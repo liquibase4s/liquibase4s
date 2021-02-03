@@ -1,5 +1,6 @@
 val CatsVersion = "2.3.1"
 val LiquibaseVersion = "4.2.2"
+val ScalaCollectionCompatVersion = "2.4.1"
 
 val MunitVersion = "0.7.21"
 val MunitCatsEffectVersion = "0.13.0"
@@ -31,6 +32,7 @@ lazy val core = project
       "org.liquibase" % "liquibase-core" % LiquibaseVersion,
       "org.scalameta" %% "munit" % MunitVersion % Test,
       "com.h2database" % "h2" % H2Version % Test,
+      "org.scala-lang.modules" %% "scala-collection-compat" % ScalaCollectionCompatVersion % Compile,
     ),
   )
 
