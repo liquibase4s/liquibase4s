@@ -19,7 +19,7 @@ libraryDependencies ++= Seq(
 )
 ```
 ## Getting Started
-
+    
 To run liquibase migrations you need to create a `LiquibaseConfig` and construct a `Liquibase` instance.
 The default implementation uses `Identity` which means migrations will run synchronously.
 
