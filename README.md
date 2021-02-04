@@ -8,16 +8,14 @@ and [`cats.effect.IO`](https://typelevel.org/cats-effect/).
 
 ## Binaries
 
-**Builds are not yet available!**
-
-If you want to use liquibase4s, clone this repo and run `sbt +publishLocal`.
+Builds are available for Scala 2.12 and 2.13.
 
 ```scala
 libraryDependencies ++= Seq(
-  "io.github.liquibase4s" %% "liquibase4s-core" % "0.1.0-SNAPSHOT",
+  "io.github.liquibase4s" %% "liquibase4s-core" % "0.1.0",
   
   // if you want to use cats.effect.IO
-  "io.github.liquibase4s" %% "liquibase4s-cats-effect" % "0.1.0-SNAPSHOT",
+  "io.github.liquibase4s" %% "liquibase4s-cats-effect" % "0.1.0",
 )
 ```
 ## Getting Started
