@@ -4,7 +4,7 @@ val ScalaCollectionCompatVersion = "2.4.1"
 
 val MunitVersion = "0.7.21"
 val MunitCatsEffectVersion = "0.13.0"
-val H2Version = "1.4.192"
+val H2Version = "1.4.200"
 
 ThisBuild / organization := "io.github.liquibase4s"
 ThisBuild / version := "0.1.0-SNAPSHOT"
