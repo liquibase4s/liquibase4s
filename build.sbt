@@ -19,6 +19,11 @@ inThisBuild(
 ThisBuild / githubWorkflowTargetTags ++= Seq("v*")
 ThisBuild / githubWorkflowPublishTargetBranches := Seq(RefPredicate.StartsWith(Ref.Tag("v")))
 ThisBuild / githubWorkflowPublish := Seq(WorkflowStep.Sbt(List("ci-release")))
+ThisBuild / githubWorkflowBuild :=
+  Seq(
+    WorkflowStep.Sbt(List("validate"), name = Some("Build project")),
+    WorkflowStep.Use(UseRef.Public("codecov", "codecov-action", "v1"), name = Some("Codecov")),
+  )
 
 val CatsVersion = "2.3.1"
 val LiquibaseVersion = "4.2.2"
@@ -87,5 +92,24 @@ ThisBuild / scalacOptions ++=
           "-language:higherKinds",
         )
     })
+
+def addCommandsAlias(name: String, cmds: Seq[String]) =
+  addCommandAlias(name, cmds.mkString(";", ";", ""))
+
+addCommandsAlias(
+  "validate",
+  Seq(
+    "clean",
+    "scalafmtCheck",
+    "scalafmtSbtCheck",
+    "test:scalafmtCheck",
+    "coverage",
+    "test",
+    "coverageReport",
+    "doc",
+    "package",
+    "packageSrc",
+  ),
+)
 
 enablePlugins(ScalafmtPlugin)
