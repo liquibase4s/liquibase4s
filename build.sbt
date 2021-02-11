@@ -26,6 +26,7 @@ ThisBuild / githubWorkflowBuild :=
   )
 
 val CatsVersion = "2.4.1"
+val CatsEffectVersion = "2.3.1"
 val LiquibaseVersion = "4.2.2"
 val ScalaCollectionCompatVersion = "2.4.1"
 
@@ -68,7 +69,7 @@ lazy val catsEffect = project
     name := "liquibase4s-cats-effect",
     libraryDependencies ++= Seq(
       "org.typelevel" %% "cats-core" % CatsVersion,
-      "org.typelevel" %% "cats-effect" % CatsVersion,
+      "org.typelevel" %% "cats-effect" % CatsEffectVersion,
       "org.scalameta" %% "munit" % MunitVersion % Test,
       "org.typelevel" %% "munit-cats-effect-2" % MunitCatsEffectVersion % Test,
       "com.h2database" % "h2" % H2Version % Test,
