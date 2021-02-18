@@ -27,11 +27,11 @@ ThisBuild / githubWorkflowBuild :=
 
 val CatsVersion = "2.4.1"
 val CatsEffectVersion = "2.3.1"
-val LiquibaseVersion = "4.2.2"
+val LiquibaseVersion = "4.3.1"
 val ScalaCollectionCompatVersion = "2.4.1"
 
-val MunitVersion = "0.7.21"
-val MunitCatsEffectVersion = "0.13.1"
+val MunitVersion = "0.7.22"
+val MunitCatsEffectVersion = "0.13.0"
 val H2Version = "1.4.200"
 
 val testSettings = Seq(
