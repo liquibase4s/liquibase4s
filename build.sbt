@@ -25,13 +25,13 @@ ThisBuild / githubWorkflowBuild :=
     WorkflowStep.Use(UseRef.Public("codecov", "codecov-action", "v1"), name = Some("Codecov")),
   )
 
-val CatsVersion = "2.4.2"
+val CatsVersion = "2.5.0"
 val CatsEffectVersion = "2.3.3"
-val LiquibaseVersion = "4.3.1"
+val LiquibaseVersion = "4.3.2"
 val ScalaCollectionCompatVersion = "2.4.2"
 
-val MunitVersion = "0.7.22"
-val MunitCatsEffectVersion = "1.0.1"
+val MunitVersion = "0.7.23"
+val MunitCatsEffectVersion = "0.13.1"
 val H2Version = "1.4.200"
 
 val testSettings = Seq(
