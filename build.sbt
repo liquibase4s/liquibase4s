@@ -28,7 +28,7 @@ ThisBuild / githubWorkflowBuild :=
 val CatsVersion = "2.5.0"
 val CatsEffectVersion = "2.4.1"
 val LiquibaseVersion = "4.3.2"
-val ScalaCollectionCompatVersion = "2.4.2"
+val ScalaCollectionCompatVersion = "2.4.3"
 
 val MunitVersion = "0.7.23"
 val MunitCatsEffectVersion = "0.13.1"
