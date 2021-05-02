@@ -8,4 +8,4 @@ addSbtPlugin("com.codecommit" % "sbt-github-actions" % "0.10.1")
 addSbtPlugin("com.geirsson" % "sbt-ci-release" % "1.5.7")
 
 // Code coverage
-addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.6.1")
+addSbtPlugin("org.scoverage" % "sbt-scoverage" % "1.7.1")
