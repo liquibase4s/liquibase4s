@@ -12,7 +12,7 @@ inThisBuild(
       ),
     ),
     scalaVersion := "2.13.4",
-    crossScalaVersions := Seq("2.12.11", "2.13.4"),
+    crossScalaVersions := Seq("2.12.14", "2.13.4"),
   ),
 )
 
