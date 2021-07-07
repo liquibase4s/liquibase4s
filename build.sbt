@@ -11,8 +11,8 @@ inThisBuild(
         url("https://github.com/rfuerst87"),
       ),
     ),
-    scalaVersion := "2.13.4",
-    crossScalaVersions := Seq("2.12.11", "2.13.4"),
+    scalaVersion := "2.13.6",
+    crossScalaVersions := Seq("2.12.11", "2.13.6"),
   ),
 )
 
@@ -25,13 +25,13 @@ ThisBuild / githubWorkflowBuild :=
     WorkflowStep.Use(UseRef.Public("codecov", "codecov-action", "v1"), name = Some("Codecov")),
   )
 
-val CatsVersion = "2.6.0"
-val CatsEffectVersion = "2.5.1"
-val LiquibaseVersion = "4.3.4"
+val CatsVersion = "2.6.1"
+val CatsEffectVersion = "2.4.1"
+val LiquibaseVersion = "4.3.5"
 val ScalaCollectionCompatVersion = "2.4.3"
 
 val MunitVersion = "0.7.25"
-val MunitCatsEffectVersion = "1.0.1"
+val MunitCatsEffectVersion = "1.0.5"
 val H2Version = "1.4.200"
 
 val testSettings = Seq(
