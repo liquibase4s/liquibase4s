@@ -31,7 +31,7 @@ val LiquibaseVersion = "4.3.5"
 val ScalaCollectionCompatVersion = "2.4.3"
 
 val MunitVersion = "0.7.25"
-val MunitCatsEffectVersion = "1.0.1"
+val MunitCatsEffectVersion = "1.0.5"
 val H2Version = "1.4.200"
 
 val testSettings = Seq(
