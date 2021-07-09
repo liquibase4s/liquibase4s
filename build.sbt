@@ -12,7 +12,7 @@ inThisBuild(
       ),
     ),
     scalaVersion := "2.13.6",
-    crossScalaVersions := Seq("2.12.11", "2.13.6"),
+    crossScalaVersions := Seq("2.12.14", "2.13.6"),
   ),
 )
 
@@ -26,11 +26,11 @@ ThisBuild / githubWorkflowBuild :=
   )
 
 val CatsVersion = "2.6.1"
-val CatsEffectVersion = "2.4.1"
-val LiquibaseVersion = "4.4.0"
-val ScalaCollectionCompatVersion = "2.4.3"
+val CatsEffectVersion = "2.5.1"
+val LiquibaseVersion = "4.3.5"
+val ScalaCollectionCompatVersion = "2.4.4"
 
-val MunitVersion = "0.7.25"
+val MunitVersion = "0.7.27"
 val MunitCatsEffectVersion = "1.0.5"
 val H2Version = "1.4.200"
 
