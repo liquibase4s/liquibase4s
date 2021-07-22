@@ -11,8 +11,8 @@ inThisBuild(
         url("https://github.com/rfuerst87"),
       ),
     ),
-    scalaVersion := "2.13.6",
-    crossScalaVersions := Seq("2.12.14", "2.13.6"),
+    scalaVersion := "3.0.1",
+    crossScalaVersions := Seq("2.12.14", "2.13.6", "3.0.1"),
   ),
 )
 
@@ -76,23 +76,31 @@ lazy val catsEffect = project
     ),
   )
 
-ThisBuild / scalacOptions ++=
+ThisBuild / scalacOptions ++= {
   Seq(
+    "-encoding",
+    "UTF-8",
+    "-feature",
+    "-language:implicitConversions",
     "-Xfatal-warnings",
     "-deprecation",
-    "-feature",
-    "-unchecked",
   ) ++
     (CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((3, _)) =>
+        Seq(
+          "-unchecked",
+        )
       case Some((2, n)) if n >= 13 =>
         Seq(
-          "-Wunused",
+          "-Wunused:imports,privates,locals",
+          "-Wvalue-discard",
         )
       case _ =>
         Seq(
           "-language:higherKinds",
         )
     })
+}
 
 def addCommandsAlias(name: String, cmds: Seq[String]) =
   addCommandAlias(name, cmds.mkString(";", ";", ""))
