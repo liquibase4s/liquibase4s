@@ -1,5 +1,5 @@
 // Makes our code tidy
-addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.3")
+addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.4.6")
 
 // Builds github actions
 addSbtPlugin("com.codecommit" % "sbt-github-actions" % "0.12.0")
