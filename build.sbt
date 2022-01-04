@@ -32,7 +32,7 @@ val ScalaCollectionCompatVersion = "2.4.4"
 
 val MunitVersion = "0.7.27"
 val MunitCatsEffectVersion = "1.0.5"
-val H2Version = "1.4.200"
+val H2Version = "2.0.206"
 
 val testSettings = Seq(
   testFrameworks += new TestFramework("munit.Framework"),
