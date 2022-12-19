@@ -12,7 +12,7 @@ inThisBuild(
       ),
     ),
     scalaVersion := "2.13.6",
-    crossScalaVersions := Seq("2.12.14", "2.13.6"),
+    crossScalaVersions := Seq("2.12.14", "2.13.10"),
   ),
 )
 
@@ -26,17 +26,17 @@ ThisBuild / githubWorkflowBuild :=
   )
 
 val CatsVersion = "2.9.0"
-val CatsEffectVersion = "2.5.1"
-val LiquibaseVersion = "4.4.3"
-val ScalaCollectionCompatVersion = "2.4.4"
+val CatsEffectVersion = "2.5.5"
+val LiquibaseVersion = "4.18.0"
+val ScalaCollectionCompatVersion = "2.9.0"
 
 val MunitVersion = "0.7.29"
-val MunitCatsEffectVersion = "1.0.5"
+val MunitCatsEffectVersion = "1.0.7"
 val H2Version = "2.1.214"
 
 val testSettings = Seq(
   testFrameworks += new TestFramework("munit.Framework"),
-  fork in Test := true,
+  Test / fork := true,
 )
 
 lazy val root = project
