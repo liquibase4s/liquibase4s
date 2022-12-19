@@ -11,7 +11,7 @@ and [`cats.effect.IO`](https://typelevel.org/cats-effect/).
 
 ## Binaries
 
-Builds are available for Scala 2.12 and 2.13.
+Builds are available for Scala 2.12, 2.13 and 3.
 
 ```scala
 libraryDependencies ++= Seq(
