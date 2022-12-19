@@ -11,8 +11,8 @@ inThisBuild(
         url("https://github.com/rfuerst87"),
       ),
     ),
-    scalaVersion := "2.13.6",
-    crossScalaVersions := Seq("2.12.14", "2.13.10"),
+    scalaVersion := "3.2.1",
+    crossScalaVersions := Seq("2.12.17", "2.13.10", "3.2.1"),
   ),
 )
 
@@ -22,7 +22,7 @@ ThisBuild / githubWorkflowPublish := Seq(WorkflowStep.Sbt(List("ci-release")))
 ThisBuild / githubWorkflowBuild :=
   Seq(
     WorkflowStep.Sbt(List("validate"), name = Some("Build project")),
-    WorkflowStep.Use(UseRef.Public("codecov", "codecov-action", "v1"), name = Some("Codecov")),
+    WorkflowStep.Use(UseRef.Public("codecov", "codecov-action", "v3"), name = Some("Codecov")),
   )
 
 val CatsVersion = "2.9.0"
@@ -76,23 +76,32 @@ lazy val catsEffect = project
     ),
   )
 
-ThisBuild / scalacOptions ++=
+ThisBuild / scalacOptions ++= {
   Seq(
+    "-encoding",
+    "UTF-8",
+    "-language:implicitConversions",
     "-Xfatal-warnings",
     "-deprecation",
     "-feature",
-    "-unchecked",
   ) ++
     (CrossVersion.partialVersion(scalaVersion.value) match {
+      case Some((3, _)) =>
+        Seq(
+          "-unchecked",
+        )
       case Some((2, n)) if n >= 13 =>
         Seq(
           "-Wunused",
+          "-Wunused:imports,privates,locals",
+          "-Wvalue-discard",
         )
       case _ =>
         Seq(
           "-language:higherKinds",
         )
     })
+}
 
 def addCommandsAlias(name: String, cmds: Seq[String]) =
   addCommandAlias(name, cmds.mkString(";", ";", ""))
