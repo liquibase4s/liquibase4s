@@ -6,8 +6,7 @@ class Liquibase[F[_]](config: LiquibaseConfig)(implicit handler: MigrationHandle
     */
   def migrate(): F[Unit] = handler.migrate(config)
 
-  /** Checks and identifies any possible errors in a changelog that can cause
-    * migrations to fail.
+  /** Checks and identifies any possible errors in a changelog that can cause migrations to fail.
     */
   def validate(): F[Unit] = handler.validate(config)
 }
