@@ -22,7 +22,7 @@ ThisBuild / githubWorkflowPublish := Seq(WorkflowStep.Sbt(List("ci-release")))
 ThisBuild / githubWorkflowBuild :=
   Seq(
     WorkflowStep.Sbt(List("validate"), name = Some("Build project")),
-    WorkflowStep.Use(UseRef.Public("codecov", "codecov-action", "v1"), name = Some("Codecov")),
+    WorkflowStep.Use(UseRef.Public("codecov", "codecov-action", "v3"), name = Some("Codecov")),
   )
 
 val CatsVersion = "2.9.0"

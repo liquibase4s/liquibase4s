@@ -58,7 +58,7 @@ jobs:
         run: sbt ++${{ matrix.scala }} validate
 
       - name: Codecov
-        uses: codecov/codecov-action@v1
+        uses: codecov/codecov-action@v3
 
       - name: Compress target directories
         run: tar cf targets.tar target liquibase4s-core/target liquibase4s-cats-effect/target project/target
