@@ -2,6 +2,7 @@ package io.github.liquibase4s
 import liquibase.exception.ChangeLogParseException
 import munit.FunSuite
 
+import java.util.Date
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
@@ -14,6 +15,10 @@ class FutureMigrationHandlerSuite extends FunSuite {
 
   test("liquibase validation should bring future effect into scope") {
     Liquibase[Future](TestConfig.liquibaseConfig).validate().map(assertEquals(_, ()))
+  }
+
+  test("liquibase rollback to Date should bring future effect into scope") {
+    Liquibase[Future](TestConfig.liquibaseConfig).rollbackToDate(new Date()).map(assertEquals(_, ()))
   }
 
   test("liquibase validation should raise an error if changelog is invalid") {
