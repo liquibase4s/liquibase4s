@@ -11,8 +11,8 @@ inThisBuild(
         url("https://github.com/rfuerst87"),
       ),
     ),
-    scalaVersion := "3.2.1",
-    crossScalaVersions := Seq("2.12.17", "2.13.10", "3.2.1"),
+    scalaVersion := "3.2.2",
+    crossScalaVersions := Seq("2.12.17", "2.13.10", "3.2.2"),
   ),
 )
 
