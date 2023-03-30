@@ -6,6 +6,7 @@ import liquibase.resource.ClassLoaderResourceAccessor
 import liquibase.{Contexts, LabelExpression}
 
 import java.sql.{Connection, DriverManager}
+import java.util.Date
 import scala.jdk.CollectionConverters._
 
 class LiquibaseWrapper(config: LiquibaseConfig) {
@@ -30,6 +31,14 @@ class LiquibaseWrapper(config: LiquibaseConfig) {
     val liquibase = createLiquibase(connection, config.changelog)
 
     liquibase.validate()
+  }
+
+  def rollbackToDate(dateToRollback: Date): Unit = {
+    val connection = getConnection(config)
+    val liquibase = createLiquibase(connection, config.changelog)
+    val contexts = buildContexts(config.contexts)
+    val labelExpression = buildLabelExpression(config.contexts)
+    liquibase.rollback(dateToRollback, contexts, labelExpression)
   }
 
   private def createLiquibase(connection: Connection, changelog: String): liquibase.Liquibase = {
