@@ -5,6 +5,8 @@ import io.github.liquibase4s.{Liquibase, TestConfig}
 import liquibase.exception.ChangeLogParseException
 import munit.CatsEffectSuite
 
+import java.util.Date
+
 class CatsMigrationHandlerSuite extends CatsEffectSuite {
   import CatsMigrationHandler._
 
@@ -14,6 +16,10 @@ class CatsMigrationHandlerSuite extends CatsEffectSuite {
 
   test("liquibase validation should use cats IO") {
     Liquibase[IO](TestConfig.liquibaseConfig).validate().assertEquals(())
+  }
+
+  test("liquibase rollback to Date  should use cats IO") {
+    Liquibase[IO](TestConfig.liquibaseConfig).rollbackToDate(new Date()).assertEquals(())
   }
 
   test("liquibase validation should raise an error if changelog is invalid") {
