@@ -3,7 +3,7 @@
 [![Scala Steward badge](https://img.shields.io/badge/Scala_Steward-helping-blue.svg?style=flat&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAQCAMAAAARSr4IAAAAVFBMVEUAAACHjojlOy5NWlrKzcYRKjGFjIbp293YycuLa3pYY2LSqql4f3pCUFTgSjNodYRmcXUsPD/NTTbjRS+2jomhgnzNc223cGvZS0HaSD0XLjbaSjElhIr+AAAAAXRSTlMAQObYZgAAAHlJREFUCNdNyosOwyAIhWHAQS1Vt7a77/3fcxxdmv0xwmckutAR1nkm4ggbyEcg/wWmlGLDAA3oL50xi6fk5ffZ3E2E3QfZDCcCN2YtbEWZt+Drc6u6rlqv7Uk0LdKqqr5rk2UCRXOk0vmQKGfc94nOJyQjouF9H/wCc9gECEYfONoAAAAASUVORK5CYII=)](https://scala-steward.org)
 [![Continuous Integration](https://github.com/liquibase4s/liquibase4s/workflows/Continuous%20Integration/badge.svg)](https://github.com/liquibase4s/liquibase4s/actions)
 [![codecov](https://codecov.io/gh/liquibase4s/liquibase4s/branch/main/graph/badge.svg?token=UH3W3RCWB8)](https://codecov.io/gh/liquibase4s/liquibase4s)
-[![Latest version](https://img.shields.io/badge/liquibase4s-1.0.0-orange.svg)]((https://index.scala-lang.org/liquibase4s/liquibase4s))
+[![Latest version](https://img.shields.io/badge/liquibase4s-1.1.0-orange.svg)]((https://index.scala-lang.org/liquibase4s/liquibase4s))
 
 liquibase4s is a simple, idiomatic wrapper library to run [Liquibase](https://www.liquibase.org) migrations
 in Scala. We currently support `Identity`, [`scala.concurrent.Future`](https://docs.scala-lang.org/overviews/core/futures.html)
@@ -15,10 +15,10 @@ Builds are available for Scala 2.12, 2.13 and 3.
 
 ```scala
 libraryDependencies ++= Seq(
-  "io.github.liquibase4s" %% "liquibase4s-core" % "1.0.0",
+  "io.github.liquibase4s" %% "liquibase4s-core" % "1.1.0",
   
   // if you want to use cats.effect.IO
-  "io.github.liquibase4s" %% "liquibase4s-cats-effect" % "1.0.0",
+  "io.github.liquibase4s" %% "liquibase4s-cats-effect" % "1.1.0",
 )
 ```
 ## Getting Started
