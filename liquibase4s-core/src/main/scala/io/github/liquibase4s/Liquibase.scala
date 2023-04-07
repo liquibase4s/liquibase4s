@@ -12,6 +12,10 @@ class Liquibase[F[_]](config: LiquibaseConfig)(implicit handler: MigrationHandle
     */
   def validate(): F[Unit] = handler.validate(config)
 
+  /** Reverts the database to the state it was in at the date and time specified.
+    * @param dateToRollback
+    *   Date to rollback to.
+    */
   def rollbackToDate(dateToRollback: Date): F[Unit] = handler.rollbackToDate(config, dateToRollback)
 }
 
