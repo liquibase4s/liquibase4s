@@ -5,7 +5,7 @@ addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.0")
 addSbtPlugin("com.codecommit" % "sbt-github-actions" % "0.14.2")
 
 // Release plugin
-addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.5.11")
+addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.5.12")
 
 // Code coverage
 addSbtPlugin("org.scoverage" % "sbt-scoverage" % "2.0.7")
