@@ -2,7 +2,7 @@
 addSbtPlugin("org.scalameta" % "sbt-scalafmt" % "2.5.0")
 
 // Builds github actions
-addSbtPlugin("com.codecommit" % "sbt-github-actions" % "0.14.2")
+addSbtPlugin("com.github.sbt" % "sbt-github-actions" % "0.15.0")
 
 // Release plugin
 addSbtPlugin("com.github.sbt" % "sbt-ci-release" % "1.5.11")
