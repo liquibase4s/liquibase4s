@@ -8,4 +8,5 @@ case class LiquibaseConfig(
     changelog: String,
     contexts: Option[List[String]] = None,
     labels: Option[List[String]] = None,
+    schemaName: Option[String] = None,
 )
