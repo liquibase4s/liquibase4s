@@ -45,6 +45,7 @@ class LiquibaseWrapper(config: LiquibaseConfig) {
     val database = DatabaseFactory.getInstance.findCorrectDatabaseImplementation(
       new JdbcConnection(connection),
     )
+    config.schemaName.foreach(database.setDefaultSchemaName)
     val classLoader = classOf[LiquibaseWrapper].getClassLoader
     val resourceAccessor = new ClassLoaderResourceAccessor(classLoader)
     new liquibase.Liquibase(changelog, resourceAccessor, database)
