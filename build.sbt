@@ -31,7 +31,7 @@ val LiquibaseVersion = "4.20.0"
 val ScalaCollectionCompatVersion = "2.9.0"
 
 val MunitVersion = "0.7.29"
-val MunitCatsEffectVersion = "1.0.7"
+val MunitCatsEffectVersion = "2.0.0"
 val H2Version = "2.1.214"
 
 val testSettings = Seq(
@@ -71,7 +71,7 @@ lazy val catsEffect = project
       "org.typelevel" %% "cats-core" % CatsVersion,
       "org.typelevel" %% "cats-effect" % CatsEffectVersion,
       "org.scalameta" %% "munit" % MunitVersion % Test,
-      "org.typelevel" %% "munit-cats-effect-3" % MunitCatsEffectVersion % Test,
+      "org.typelevel" %% "munit-cats-effect" % MunitCatsEffectVersion % Test,
       "com.h2database" % "h2" % H2Version % Test,
     ),
   )
