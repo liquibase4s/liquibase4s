@@ -30,7 +30,7 @@ val CatsEffectVersion = "3.4.8"
 val LiquibaseVersion = "4.20.0"
 val ScalaCollectionCompatVersion = "2.9.0"
 
-val MunitVersion = "0.7.29"
+val MunitVersion = "1.3.4"
 val MunitCatsEffectVersion = "1.0.7"
 val H2Version = "2.1.214"
 
